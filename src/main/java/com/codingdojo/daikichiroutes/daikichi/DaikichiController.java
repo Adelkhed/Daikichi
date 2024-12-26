@@ -1,14 +1,22 @@
 package com.codingdojo.daikichiroutes.daikichi;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/daikichi")
+@RequestMapping("/")
 
 
 public class DaikichiController {
 	@RequestMapping("")
+	public String index(@RequestParam(value="q",required=false) String searchQuery) {
+		if(searchQuery == null) {
+			return "You searched for nothing";
+		}
+		return "You searched for: " + searchQuery;
+	}
+	@RequestMapping("/welcome")
 	public String welcome() {
 		return "Welcome !";
 	}
@@ -21,4 +29,5 @@ public class DaikichiController {
 	public String tomorrow() {
 		return "Tomorrow, an opportunity will arise so be sure to bo open to new ideas !";
 	}
+	
 }
