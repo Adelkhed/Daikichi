@@ -5,21 +5,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/daikichi")
 
 
 public class DaikichiController {
-	@RequestMapping("")
-	public String index(@RequestParam(value="q",required=false) String searchQuery) {
-		if(searchQuery == null) {
-			return "You searched for nothing";
-		}
-		return "You searched for: " + searchQuery;
-	}
-	@RequestMapping("/welcome")
+	@RequestMapping()
 	public String welcome() {
 		return "Welcome !";
 	}
+	
 	
 	@RequestMapping("/today")
 	public String today() {
